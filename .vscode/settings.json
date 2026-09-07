@@ -1,0 +1,5 @@
+{
+    "urdf-visualizer.packages": {
+        "Mini_Dog_URDF_description": "${workspaceFolder}/Mini_Dog_URDF_description"
+    }
+}

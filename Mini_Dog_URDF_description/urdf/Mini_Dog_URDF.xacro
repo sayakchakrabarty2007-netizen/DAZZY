@@ -1,0 +1,937 @@
+<?xml version="1.0" ?>
+<robot name="Mini_Dog_URDF" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find Mini_Dog_URDF_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find Mini_Dog_URDF_description)/urdf/Mini_Dog_URDF.trans" />
+<xacro:include filename="$(find Mini_Dog_URDF_description)/urdf/Mini_Dog_URDF.gazebo" />
+
+<link name="dummy_link" />
+  <joint name="dummy_joint" type="fixed">
+    <parent link="dummy_link"/>
+    <child link="base_link"/>
+    <!-- Adjust the roll, pitch, yaw (rpy) values here if it's facing the wrong way -->
+    <origin xyz="0 0 0.0" rpy="1.5707963 0 -1.5707963"/>
+  </joint>
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.06000000000000351 0.006277683443625543 1.46295444822863e-17" rpy="0 0 0"/>
+    <mass value="0.03885522131576618"/>
+    <inertia ixx="1.1e-05" iyy="5.1e-05" izz="4.3e-05" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Femur_left_1">
+  <inertial>
+    <origin xyz="-0.010006923148837377 -0.01366093016271058 -0.001499999999999991" rpy="0 0 0"/>
+    <mass value="0.0018979345824833387"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.02875 -0.0115 0.02855" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Femur_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.02875 -0.0115 0.02855" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Femur_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Femur_left__1__1">
+  <inertial>
+    <origin xyz="-0.010006923148837402 -0.013660930162710585 -0.0015000000000000013" rpy="0 0 0"/>
+    <mass value="0.0018979345824833387"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.09125 -0.0115 0.02855" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Femur_left__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.09125 -0.0115 0.02855" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Femur_left__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Femur_right__1__1">
+  <inertial>
+    <origin xyz="-0.010006923148847043 -0.013660930162727318 0.0015000000000000083" rpy="0 0 0"/>
+    <mass value="0.0018979345824833387"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.02875 -0.0115 -0.02855" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Femur_right__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.02875 -0.0115 -0.02855" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Femur_right__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Knee-bearing_1">
+  <inertial>
+    <origin xyz="4.2262027211137365e-13 -1.6151621574922448e-08 0.0014999999999999979" rpy="0 0 0"/>
+    <mass value="0.0005654866776461869"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.11125 0.023141 0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Knee-bearing_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.11125 0.023141 0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Knee-bearing_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Knee-bearing__1__1">
+  <inertial>
+    <origin xyz="4.2261333321746974e-13 -1.6151621543697425e-08 0.0015000000000000083" rpy="0 0 0"/>
+    <mass value="0.0005654866776461869"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.04875 0.023141 0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Knee-bearing__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.04875 0.023141 0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Knee-bearing__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Knee-bearing__1___1__1">
+  <inertial>
+    <origin xyz="4.2264108879308537e-13 -1.6151621533289084e-08 -0.0014999999999999944" rpy="0 0 0"/>
+    <mass value="0.0005654866776461869"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.04875 0.023141 -0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Knee-bearing__1___1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.04875 0.023141 -0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Knee-bearing__1___1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Knee-bearing__1___2__1">
+  <inertial>
+    <origin xyz="4.22592516535758e-13 -1.6151621522880744e-08 -0.0014999999999999944" rpy="0 0 0"/>
+    <mass value="0.0005654866776461869"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.11115 0.023141 -0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Knee-bearing__1___2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.11115 0.023141 -0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Knee-bearing__1___2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Femur_right_1">
+  <inertial>
+    <origin xyz="-0.010006923148847102 -0.01366093016272731 0.0015000000000000083" rpy="0 0 0"/>
+    <mass value="0.0018979345824833387"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.09115 -0.0115 -0.02855" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Femur_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.09115 -0.0115 -0.02855" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Femur_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="PTK_7465_v3_1">
+  <inertial>
+    <origin xyz="0.013901343647080108 4.614364446098307e-16 0.005774925332524017" rpy="0 0 0"/>
+    <mass value="0.013830683338000317"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.04795 -0.0115 0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/PTK_7465_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.04795 -0.0115 0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/PTK_7465_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="PTK_7465_v3__1___1__1">
+  <inertial>
+    <origin xyz="-0.013901343647080094 -4.666406150377611e-16 0.005774925332524007" rpy="0 0 0"/>
+    <mass value="0.013830683338000317"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.07205 -0.0115 0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/PTK_7465_v3__1___1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.07205 -0.0115 0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/PTK_7465_v3__1___1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="PTK_7465_v3__1__1">
+  <inertial>
+    <origin xyz="0.013901343647080122 -4.562322741819003e-16 -0.005774925332524003" rpy="0 0 0"/>
+    <mass value="0.013830683338000317"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.04795 -0.0115 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/PTK_7465_v3__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.04795 -0.0115 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/PTK_7465_v3__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="PTK_7465_v3__1___1___1__1">
+  <inertial>
+    <origin xyz="0.013098656352919888 4.753142324176451e-16 -0.005774925332524003" rpy="0 0 0"/>
+    <mass value="0.013830683338000317"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.09895 -0.0115 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/PTK_7465_v3__1___1___1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.09895 -0.0115 -0.02" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/PTK_7465_v3__1___1___1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Esp32_Platform_1">
+  <inertial>
+    <origin xyz="-0.04749995038972327 0.0025000000000000473 5.551115123125783e-19" rpy="0 0 0"/>
+    <mass value="0.023128186918942417"/>
+    <inertia ixx="5e-06" iyy="2.7e-05" izz="2.1e-05" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0125 -0.02 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Esp32_Platform_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0125 -0.02 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Esp32_Platform_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Battery-Platform_1">
+  <inertial>
+    <origin xyz="-0.04839459526795026 0.008456964256046237 2.4369884796728917e-07" rpy="0 0 0"/>
+    <mass value="0.02968226258570684"/>
+    <inertia ixx="9e-06" iyy="3.9e-05" izz="3e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0125 -0.025 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Battery-Platform_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0125 -0.025 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Battery-Platform_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Head_1">
+  <inertial>
+    <origin xyz="-0.047442416576135266 0.011157188276318758 -3.895671952087887e-07" rpy="0 0 0"/>
+    <mass value="0.03652813810083239"/>
+    <inertia ixx="1.3e-05" iyy="5.2e-05" izz="4.1e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0125 -0.038 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Head_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0125 -0.038 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Head_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Servo_Horn_1">
+  <inertial>
+    <origin xyz="-0.005385823895367976 0.003109506875798666 -0.000899999999999998" rpy="0 0 0"/>
+    <mass value="0.0003000218571105137"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.02875 -0.0115 -0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Servo_Horn_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.02875 -0.0115 -0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Servo_Horn_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Servo_Horn__1__1">
+  <inertial>
+    <origin xyz="-0.005385823895368014 0.003109506875798628 -0.0008999999999999946" rpy="0 0 0"/>
+    <mass value="0.0003000218571105137"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.09115 -0.0115 -0.03165" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Servo_Horn__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.09115 -0.0115 -0.03165" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Servo_Horn__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Servo_Horn__2__1">
+  <inertial>
+    <origin xyz="-0.0053858238953680415 0.0031095068757986417 0.0008999999999999876" rpy="0 0 0"/>
+    <mass value="0.0003000218571105137"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.09125 -0.0115 0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Servo_Horn__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.09125 -0.0115 0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Servo_Horn__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Servo_Horn__3__1">
+  <inertial>
+    <origin xyz="-0.005385823895367969 0.00310950687579864 0.0009000000000000154" rpy="0 0 0"/>
+    <mass value="0.0003000218571105137"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.02875 -0.0115 0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Servo_Horn__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.02875 -0.0115 0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Servo_Horn__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Tibia_right_1">
+  <inertial>
+    <origin xyz="0.006315466034834807 -0.00700471170764588 -0.00400034052338508" rpy="0 0 0"/>
+    <mass value="0.0012633506773960263"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.04875 0.023141 -0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Tibia_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.04875 0.023141 -0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Tibia_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Tibia_right__1__1">
+  <inertial>
+    <origin xyz="0.0063154660348347935 -0.007004711707645817 -0.004000340523385073" rpy="0 0 0"/>
+    <mass value="0.0012633506773960263"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.11115 0.023141 -0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Tibia_right__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.11115 0.023141 -0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Tibia_right__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Tibia_left_1">
+  <inertial>
+    <origin xyz="0.006333544782987942 -0.007024764284155865 0.0040174405387894616" rpy="0 0 0"/>
+    <mass value="0.001259743842688641"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.04875 0.023141 0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Tibia_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.04875 0.023141 0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Tibia_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Tibia_left__1__1">
+  <inertial>
+    <origin xyz="0.006333544782987935 -0.007024764284155865 0.004017440538789451" rpy="0 0 0"/>
+    <mass value="0.001259743842688641"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.11125 0.023141 0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Tibia_left__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.11125 0.023141 0.03155" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Tibia_left__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Foot_1">
+  <inertial>
+    <origin xyz="0.0010517312581306316 -0.0035929376359565487 -2.462578752027156e-13" rpy="0 0 0"/>
+    <mass value="0.00017266714486627533"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.023405 0.05387 0.02685" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.023405 0.05387 0.02685" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Foot__3__1">
+  <inertial>
+    <origin xyz="0.0010517312581306872 -0.0035929376359565557 -2.4625440575576363e-13" rpy="0 0 0"/>
+    <mass value="0.00017266714486627533"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.023405 0.05387 -0.02685" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Foot__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.023405 0.05387 -0.02685" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Foot__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Foot__1__1">
+  <inertial>
+    <origin xyz="0.001051731258130656 -0.0035929376359565 -2.4625093630881167e-13" rpy="0 0 0"/>
+    <mass value="0.00017266714486627533"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.085805 0.05387 -0.02685" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Foot__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.085805 0.05387 -0.02685" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Foot__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Foot__2__1">
+  <inertial>
+    <origin xyz="0.0010517312581306143 -0.0035929376359565626 -2.4626828354357144e-13" rpy="0 0 0"/>
+    <mass value="0.00017266714486627533"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.085905 0.05387 0.02685" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Foot__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.085905 0.05387 0.02685" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Foot__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Pushrod_1">
+  <inertial>
+    <origin xyz="0.0081584319459116 0.017495030023254827 0.0015000000000000013" rpy="0 0 0"/>
+    <mass value="0.0007024792263066811"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.058701 0.019486 0.03535" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Pushrod_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.058701 0.019486 0.03535" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Pushrod_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Pushrod__1__1">
+  <inertial>
+    <origin xyz="0.008158431945911593 0.017495030023254816 0.0015000000000000013" rpy="0 0 0"/>
+    <mass value="0.0007024792263066811"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.121201 0.019486 0.03535" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Pushrod__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.121201 0.019486 0.03535" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Pushrod__1__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Pushrod__2__1">
+  <inertial>
+    <origin xyz="0.008158431945911641 0.017495030023254823 -0.0014999999999999875" rpy="0 0 0"/>
+    <mass value="0.0007024792263066811"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.058701 0.019486 -0.03535" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Pushrod__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.058701 0.019486 -0.03535" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Pushrod__2__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Pushrod__3__1">
+  <inertial>
+    <origin xyz="0.008158431945911634 0.017495030023254844 -0.0014999999999999805" rpy="0 0 0"/>
+    <mass value="0.0007024792263066811"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.121101 0.019486 -0.03535" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Pushrod__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.121101 0.019486 -0.03535" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Pushrod__3__1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Battery_Equivalent_1">
+  <inertial>
+    <origin xyz="0.0 0.006999999999999999 -4.660195412117429e-19" rpy="0 0 0"/>
+    <mass value="0.03240000000000961"/>
+    <inertia ixx="2e-06" iyy="8e-06" izz="7e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.06 -0.038 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Battery_Equivalent_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.06 -0.038 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/Battery_Equivalent_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="All_Other_Electronics_equivalent_1">
+  <inertial>
+    <origin xyz="6.938893903907228e-18 0.004499999999999997 -0.004999999999999999" rpy="0 0 0"/>
+    <mass value="0.12300750000000002"/>
+    <inertia ixx="2e-06" iyy="3.2e-05" izz="3.1e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.06 -0.025 -0.0075" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/All_Other_Electronics_equivalent_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.06 -0.025 -0.0075" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://Mini_Dog_URDF_description/meshes/All_Other_Electronics_equivalent_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 13" type="revolute">
+  <origin xyz="0.0192 0.0 -0.00855" rpy="0 0 0"/>
+  <parent link="PTK_7465_v3_1"/>
+  <child link="Femur_left_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="0.785398" lower="-0.785398" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 14" type="revolute">
+  <origin xyz="-0.0192 0.0 -0.00855" rpy="0 0 0"/>
+  <parent link="PTK_7465_v3__1___1__1"/>
+  <child link="Femur_left__1__1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="0.785398" lower="-0.785398" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 16" type="revolute">
+  <origin xyz="0.0192 0.0 0.00855" rpy="0 0 0"/>
+  <parent link="PTK_7465_v3__1__1"/>
+  <child link="Femur_right__1__1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+  <limit upper="0.785398" lower="-0.785398" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Rigid 26" type="fixed">
+  <origin xyz="-0.02 -0.034641 -0.003" rpy="0 0 0"/>
+  <parent link="Femur_left__1__1"/>
+  <child link="Knee-bearing_1"/>
+</joint>
+
+<joint name="Rigid 27" type="fixed">
+  <origin xyz="-0.02 -0.034641 -0.003" rpy="0 0 0"/>
+  <parent link="Femur_left_1"/>
+  <child link="Knee-bearing__1__1"/>
+</joint>
+
+<joint name="Rigid 28" type="fixed">
+  <origin xyz="-0.02 -0.034641 0.003" rpy="0 0 0"/>
+  <parent link="Femur_right__1__1"/>
+  <child link="Knee-bearing__1___1__1"/>
+</joint>
+
+<joint name="Rigid 29" type="fixed">
+  <origin xyz="-0.02 -0.034641 0.003" rpy="0 0 0"/>
+  <parent link="Femur_right_1"/>
+  <child link="Knee-bearing__1___2__1"/>
+</joint>
+
+<joint name="Revolute 32" type="revolute">
+  <origin xyz="0.0078 0.0 0.00855" rpy="0 0 0"/>
+  <parent link="PTK_7465_v3__1___1___1__1"/>
+  <child link="Femur_right_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+  <limit upper="0.785398" lower="-0.785398" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Rigid 34" type="fixed">
+  <origin xyz="-0.04795 0.0115 -0.02" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="PTK_7465_v3_1"/>
+</joint>
+
+<joint name="Rigid 35" type="fixed">
+  <origin xyz="-0.07205 0.0115 -0.02" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="PTK_7465_v3__1___1__1"/>
+</joint>
+
+<joint name="Rigid 36" type="fixed">
+  <origin xyz="-0.04795 0.0115 0.02" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="PTK_7465_v3__1__1"/>
+</joint>
+
+<joint name="Rigid 37" type="fixed">
+  <origin xyz="-0.09895 0.0115 0.02" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="PTK_7465_v3__1___1___1__1"/>
+</joint>
+
+<joint name="Rigid 38" type="fixed">
+  <origin xyz="-0.0125 0.02 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Esp32_Platform_1"/>
+</joint>
+
+<joint name="Rigid 41" type="fixed">
+  <origin xyz="0.0 0.005 0.0" rpy="0 0 0"/>
+  <parent link="Esp32_Platform_1"/>
+  <child link="Battery-Platform_1"/>
+</joint>
+
+<joint name="Rigid 42" type="fixed">
+  <origin xyz="0.0 0.013 0.0" rpy="0 0 0"/>
+  <parent link="Battery-Platform_1"/>
+  <child link="Head_1"/>
+</joint>
+
+<joint name="Rigid 43" type="fixed">
+  <origin xyz="0.0 0.0 0.003" rpy="0 0 0"/>
+  <parent link="Femur_right__1__1"/>
+  <child link="Servo_Horn_1"/>
+</joint>
+
+<joint name="Rigid 44" type="fixed">
+  <origin xyz="0.0078 0.0 0.01165" rpy="0 0 0"/>
+  <parent link="PTK_7465_v3__1___1___1__1"/>
+  <child link="Servo_Horn__1__1"/>
+</joint>
+
+<joint name="Rigid 45" type="fixed">
+  <origin xyz="0.0 0.0 -0.003" rpy="0 0 0"/>
+  <parent link="Femur_left__1__1"/>
+  <child link="Servo_Horn__2__1"/>
+</joint>
+
+<joint name="Rigid 46" type="fixed">
+  <origin xyz="0.0 0.0 -0.003" rpy="0 0 0"/>
+  <parent link="Femur_left_1"/>
+  <child link="Servo_Horn__3__1"/>
+</joint>
+
+<joint name="Rigid 47" type="fixed">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="Knee-bearing__1___1__1"/>
+  <child link="Tibia_right_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Rigid 48" type="fixed">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="Knee-bearing__1___2__1"/>
+  <child link="Tibia_right__1__1"/>
+</joint>
+
+<joint name="Rigid 49" type="fixed">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="Knee-bearing__1__1"/>
+  <child link="Tibia_left_1"/>
+</joint>
+
+<joint name="Rigid 50" type="fixed">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="Knee-bearing_1"/>
+  <child link="Tibia_left__1__1"/>
+</joint>
+
+<joint name="Rigid 51" type="fixed">
+  <origin xyz="0.025345 -0.030729 0.0047" rpy="0 0 0"/>
+  <parent link="Tibia_left_1"/>
+  <child link="Foot_1"/>
+</joint>
+
+<joint name="Rigid 52" type="fixed">
+  <origin xyz="0.025345 -0.030729 -0.0047" rpy="0 0 0"/>
+  <parent link="Tibia_right_1"/>
+  <child link="Foot__3__1"/>
+</joint>
+
+<joint name="Rigid 53" type="fixed">
+  <origin xyz="0.025345 -0.030729 -0.0047" rpy="0 0 0"/>
+  <parent link="Tibia_right__1__1"/>
+  <child link="Foot__1__1"/>
+</joint>
+
+<joint name="Rigid 54" type="fixed">
+  <origin xyz="0.025345 -0.030729 0.0047" rpy="0 0 0"/>
+  <parent link="Tibia_left__1__1"/>
+  <child link="Foot__2__1"/>
+</joint>
+
+<joint name="Rigid 56" type="fixed">
+  <origin xyz="-0.009951 0.003655 -0.0038" rpy="0 0 0"/>
+  <parent link="Tibia_left_1"/>
+  <child link="Pushrod_1"/>
+</joint>
+
+<joint name="Rigid 57" type="fixed">
+  <origin xyz="-0.009951 0.003655 -0.0038" rpy="0 0 0"/>
+  <parent link="Tibia_left__1__1"/>
+  <child link="Pushrod__1__1"/>
+</joint>
+
+<joint name="Rigid 58" type="fixed">
+  <origin xyz="-0.009951 0.003655 0.0038" rpy="0 0 0"/>
+  <parent link="Tibia_right_1"/>
+  <child link="Pushrod__2__1"/>
+</joint>
+
+<joint name="Rigid 59" type="fixed">
+  <origin xyz="-0.009951 0.003655 0.0038" rpy="0 0 0"/>
+  <parent link="Tibia_right__1__1"/>
+  <child link="Pushrod__3__1"/>
+</joint>
+
+<joint name="Rigid 62" type="fixed">
+  <origin xyz="-0.0475 0.013 0.0" rpy="0 0 0"/>
+  <parent link="Battery-Platform_1"/>
+  <child link="Battery_Equivalent_1"/>
+</joint>
+
+<joint name="Rigid 63" type="fixed">
+  <origin xyz="-0.0475 0.005 0.0075" rpy="0 0 0"/>
+  <parent link="Esp32_Platform_1"/>
+  <child link="All_Other_Electronics_equivalent_1"/>
+</joint>
+
+</robot>

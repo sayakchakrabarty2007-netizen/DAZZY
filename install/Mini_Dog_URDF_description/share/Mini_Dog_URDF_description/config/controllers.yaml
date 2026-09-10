@@ -1,0 +1,51 @@
+# =============================================================================
+# ros2_control Controller Configuration
+# Mini Robot Dog - DAZZY
+#
+# PTK-7465 Servo Parameters:
+#   Stall Torque: 5.5 kg·cm = 0.5394 N·m
+#   No-Load Speed: 0.075 s/60° = 13.96 rad/s
+#   Supply Voltage: 7.4V (2S LiPo, constant)
+#   PWM Frequency: 333 Hz
+# =============================================================================
+
+controller_manager:
+  ros__parameters:
+    update_rate: 333  # Hz — matches PTK-7465 servo PWM frequency
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    joint_position_controller:
+      type: position_controllers/JointGroupPositionController
+
+# =============================================================================
+# Joint State Broadcaster
+# Publishes /joint_states at the controller_manager update_rate (333 Hz)
+# Provides position, velocity, and effort feedback for all controlled joints
+# =============================================================================
+joint_state_broadcaster:
+  ros__parameters:
+    joints:
+      - "Revolute 13"
+      - "Revolute 14"
+      - "Revolute 16"
+      - "Revolute 32"
+    interfaces:
+      - position
+      - velocity
+      - effort
+
+# =============================================================================
+# Joint Position Controller
+# Position-controlled servos (matching PTK-7465 behavior)
+# Servos are inherently position-controlled devices — they receive a target
+# angle and their internal PID drives the motor to that position.
+# =============================================================================
+joint_position_controller:
+  ros__parameters:
+    joints:
+      - "Revolute 13"
+      - "Revolute 14"
+      - "Revolute 16"
+      - "Revolute 32"

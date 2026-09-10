@@ -1,0 +1,25 @@
+running egg_info
+writing ../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/PKG-INFO
+writing dependency_links to ../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/dependency_links.txt
+writing entry points to ../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/entry_points.txt
+writing requirements to ../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/requires.txt
+writing top-level names to ../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/top_level.txt
+reading manifest file '../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/SOURCES.txt'
+writing manifest file '../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/SOURCES.txt'
+running build
+running build_py
+copying Mini_Dog_URDF_description/battery_sag_node.py -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/build/lib/Mini_Dog_URDF_description
+running install
+running install_lib
+copying /home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/build/lib/Mini_Dog_URDF_description/battery_sag_node.py -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages/Mini_Dog_URDF_description
+byte-compiling /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages/Mini_Dog_URDF_description/battery_sag_node.py to battery_sag_node.cpython-312.pyc
+running install_data
+copying urdf/Mini_Dog_URDF.gazebo -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/urdf
+copying config/controllers.yaml -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/config
+running install_egg_info
+removing '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages/Mini_Dog_URDF_description-0.0.0-py3.12.egg-info' (and everything under it)
+Copying ../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info to /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages/Mini_Dog_URDF_description-0.0.0-py3.12.egg-info
+running install_scripts
+Installing battery_sag_node script to /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/Mini_Dog_URDF_description
+Installing open_loop_visualizer_node script to /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/Mini_Dog_URDF_description
+writing list of installed files to '/home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/install.log'

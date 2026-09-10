@@ -1,0 +1,27 @@
+[0.605s] Invoking command in '/home/sayak/Desktop/Mini Robot Dog/DAZZY/Mini_Dog_URDF_description': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/Mini_Dog_URDF_description build --build-base /home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/build install --record /home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/install.log --install-scripts $base/lib/Mini_Dog_URDF_description --single-version-externally-managed install_data
+[0.794s] running egg_info
+[0.807s] writing ../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/PKG-INFO
+[0.807s] writing dependency_links to ../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/dependency_links.txt
+[0.807s] writing entry points to ../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/entry_points.txt
+[0.807s] writing requirements to ../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/requires.txt
+[0.807s] writing top-level names to ../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/top_level.txt
+[0.832s] reading manifest file '../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/SOURCES.txt'
+[0.833s] writing manifest file '../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/SOURCES.txt'
+[0.833s] running build
+[0.833s] running build_py
+[0.833s] copying Mini_Dog_URDF_description/battery_sag_node.py -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/build/lib/Mini_Dog_URDF_description
+[0.833s] running install
+[0.838s] running install_lib
+[0.851s] copying /home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/build/lib/Mini_Dog_URDF_description/battery_sag_node.py -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages/Mini_Dog_URDF_description
+[0.851s] byte-compiling /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages/Mini_Dog_URDF_description/battery_sag_node.py to battery_sag_node.cpython-312.pyc
+[0.852s] running install_data
+[0.852s] copying urdf/Mini_Dog_URDF.gazebo -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/urdf
+[0.853s] copying config/controllers.yaml -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/config
+[0.853s] running install_egg_info
+[0.867s] removing '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages/Mini_Dog_URDF_description-0.0.0-py3.12.egg-info' (and everything under it)
+[0.867s] Copying ../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info to /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages/Mini_Dog_URDF_description-0.0.0-py3.12.egg-info
+[0.867s] running install_scripts
+[0.954s] Installing battery_sag_node script to /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/Mini_Dog_URDF_description
+[0.954s] Installing open_loop_visualizer_node script to /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/Mini_Dog_URDF_description
+[0.954s] writing list of installed files to '/home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/install.log'
+[0.981s] Invoked command in '/home/sayak/Desktop/Mini Robot Dog/DAZZY/Mini_Dog_URDF_description' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/Mini_Dog_URDF_description build --build-base /home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/build install --record /home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/install.log --install-scripts $base/lib/Mini_Dog_URDF_description --single-version-externally-managed install_data

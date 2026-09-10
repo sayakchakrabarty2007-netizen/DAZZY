@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import os
 from glob import glob
 
@@ -7,7 +7,7 @@ package_name = 'Mini_Dog_URDF_description'
 setup(
     name=package_name,
     version='0.0.0',
-    packages=[package_name],
+    packages=find_packages(exclude=['test']),
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -26,6 +26,11 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'battery_sag_node = Mini_Dog_URDF_description.battery_sag_node:main',
+            'open_loop_visualizer_node = Mini_Dog_URDF_description.open_loop_visualizer_node:main',
+            'stand_straight_node = Mini_Dog_URDF_description.kinematics.stand_straight:main',
+            'walk_forward_node = Mini_Dog_URDF_description.kinematics.walk_forward:main',
         ],
     },
 )
+

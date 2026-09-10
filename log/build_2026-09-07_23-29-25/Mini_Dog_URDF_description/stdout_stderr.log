@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing Mini_Dog_URDF_description.egg-info/PKG-INFO
+writing dependency_links to Mini_Dog_URDF_description.egg-info/dependency_links.txt
+writing entry points to Mini_Dog_URDF_description.egg-info/entry_points.txt
+writing requirements to Mini_Dog_URDF_description.egg-info/requires.txt
+writing top-level names to Mini_Dog_URDF_description.egg-info/top_level.txt
+reading manifest file 'Mini_Dog_URDF_description.egg-info/SOURCES.txt'
+writing manifest file 'Mini_Dog_URDF_description.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages/Mini-Dog-URDF-description.egg-link (link to .)
+Installing battery_sag_node script to /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/Mini_Dog_URDF_description
+
+Installed /home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description
+running symlink_data

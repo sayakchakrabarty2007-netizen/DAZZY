@@ -1,0 +1,105 @@
+[0.084s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.084s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=20, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7fe385dd1970>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7fe385dd17f0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7fe385dd17f0>>)
+[0.118s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.118s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.118s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.118s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.118s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.118s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.118s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/sayak/Desktop/Mini Robot Dog/DAZZY'
+[0.118s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.119s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.144s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(Mini_Dog_URDF_description) by extensions ['ignore', 'ignore_ament_install']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(Mini_Dog_URDF_description) by extension 'ignore'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(Mini_Dog_URDF_description) by extension 'ignore_ament_install'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(Mini_Dog_URDF_description) by extensions ['colcon_pkg']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(Mini_Dog_URDF_description) by extension 'colcon_pkg'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(Mini_Dog_URDF_description) by extensions ['colcon_meta']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(Mini_Dog_URDF_description) by extension 'colcon_meta'
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(Mini_Dog_URDF_description) by extensions ['ros']
+[0.145s] Level 1:colcon.colcon_core.package_identification:_identify(Mini_Dog_URDF_description) by extension 'ros'
+[0.149s] DEBUG:colcon.colcon_core.package_identification:Package 'Mini_Dog_URDF_description' with type 'ros.ament_python' and name 'Mini_Dog_URDF_description'
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.150s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.150s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.150s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.150s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.150s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.150s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.174s] Level 5:colcon.colcon_core.verb:set package 'Mini_Dog_URDF_description' build argument 'cmake_args' from command line to 'None'
+[0.174s] Level 5:colcon.colcon_core.verb:set package 'Mini_Dog_URDF_description' build argument 'cmake_target' from command line to 'None'
+[0.174s] Level 5:colcon.colcon_core.verb:set package 'Mini_Dog_URDF_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.174s] Level 5:colcon.colcon_core.verb:set package 'Mini_Dog_URDF_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.174s] Level 5:colcon.colcon_core.verb:set package 'Mini_Dog_URDF_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.174s] Level 5:colcon.colcon_core.verb:set package 'Mini_Dog_URDF_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.175s] Level 5:colcon.colcon_core.verb:set package 'Mini_Dog_URDF_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.175s] Level 5:colcon.colcon_core.verb:set package 'Mini_Dog_URDF_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.175s] Level 5:colcon.colcon_core.verb:set package 'Mini_Dog_URDF_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.175s] DEBUG:colcon.colcon_core.verb:Building package 'Mini_Dog_URDF_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description', 'merge_install': False, 'path': '/home/sayak/Desktop/Mini Robot Dog/DAZZY/Mini_Dog_URDF_description', 'symlink_install': True, 'test_result_base': None}
+[0.175s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.176s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.176s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/sayak/Desktop/Mini Robot Dog/DAZZY/Mini_Dog_URDF_description' with build type 'ament_python'
+[0.176s] Level 1:colcon.colcon_core.shell:create_environment_hook('Mini_Dog_URDF_description', 'ament_prefix_path')
+[0.179s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.179s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/hook/ament_prefix_path.dsv'
+[0.180s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/hook/ament_prefix_path.sh'
+[0.181s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.379s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/sayak/Desktop/Mini Robot Dog/DAZZY/Mini_Dog_URDF_description'
+[0.379s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.810s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: upload, alias, rotate, bdist_dumb, symlink_data, check, install_headers, develop, bdist_egg, compile_catalog, editable_wheel, clean, init_catalog, build, install_lib, update_catalog, install_egg_info, install, easy_install, egg_info, register, build_py, build_ext, extract_messages, dist_info, sdist, install_scripts, bdist_wheel, bdist, bdist_rpm, saveopts, test, upload_docs, install_data, build_scripts, setopt, build_clib
+[1.067s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools 'develop' options: --always-copy, --always-unzip, --exclude-scripts, --no-deps, --egg-path, --uninstall, --record, --no-find-links, --version, --allow-hosts, --upgrade, --force-installation-into-system-dir, --optimize, --editable, --verbose, --dry-run, --prefix, --help, --install-dir, --multi-version, --user, --index-url, --find-links, --no-user-cfg, --zip-ok, --local-snapshots-ok, --script-dir, --install-layout, --quiet, --site-dirs, --build-directory
+[1.072s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/build --no-deps symlink_data
+[1.503s] Level 1:colcon.colcon_core.shell:create_environment_hook('Mini_Dog_URDF_description', 'pythonpath_develop')
+[1.504s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/hook/pythonpath_develop.dsv'
+[1.504s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/build --no-deps symlink_data
+[1.505s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/hook/pythonpath_develop.sh'
+[1.507s] Level 1:colcon.colcon_core.environment:checking '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description' for CMake module files
+[1.507s] Level 1:colcon.colcon_core.environment:checking '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description' for CMake config files
+[1.508s] Level 1:colcon.colcon_core.environment:checking '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib'
+[1.508s] Level 1:colcon.colcon_core.environment:checking '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/bin'
+[1.508s] Level 1:colcon.colcon_core.environment:checking '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/pkgconfig/Mini_Dog_URDF_description.pc'
+[1.508s] Level 1:colcon.colcon_core.environment:checking '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages'
+[1.508s] Level 1:colcon.colcon_core.shell:create_environment_hook('Mini_Dog_URDF_description', 'pythonpath')
+[1.508s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/hook/pythonpath.dsv'
+[1.509s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/hook/pythonpath.sh'
+[1.509s] Level 1:colcon.colcon_core.environment:checking '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/bin'
+[1.509s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(Mini_Dog_URDF_description)
+[1.509s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/package.dsv'
+[1.510s] INFO:colcon.colcon_core.shell:Creating package script '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/package.sh'
+[1.510s] INFO:colcon.colcon_core.shell:Creating package script '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/package.bash'
+[1.511s] INFO:colcon.colcon_core.shell:Creating package script '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/package.zsh'
+[1.511s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/colcon-core/packages/Mini_Dog_URDF_description)
+[1.511s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.512s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.512s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[1.512s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.517s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.517s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.517s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.533s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.533s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/local_setup.sh'
+[1.533s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/_local_setup_util_sh.py'
+[1.534s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/setup.sh'
+[1.535s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/local_setup.bash'
+[1.535s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/setup.bash'
+[1.535s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/local_setup.zsh'
+[1.536s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/sayak/Desktop/Mini Robot Dog/DAZZY/install/setup.zsh'

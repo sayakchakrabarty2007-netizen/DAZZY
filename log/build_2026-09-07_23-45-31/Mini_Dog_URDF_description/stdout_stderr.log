@@ -1,0 +1,75 @@
+running develop
+Removing /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages/Mini-Dog-URDF-description.egg-link (link to .)
+running egg_info
+writing ../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/PKG-INFO
+writing dependency_links to ../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/dependency_links.txt
+writing entry points to ../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/entry_points.txt
+writing requirements to ../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/requires.txt
+writing top-level names to ../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/top_level.txt
+reading manifest file '../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/SOURCES.txt'
+writing manifest file '../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info/SOURCES.txt'
+running build
+running build_py
+copying Mini_Dog_URDF_description/open_loop_visualizer_node.py -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/build/lib/Mini_Dog_URDF_description
+copying Mini_Dog_URDF_description/battery_sag_node.py -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/build/lib/Mini_Dog_URDF_description
+running install
+running install_lib
+creating /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages/Mini_Dog_URDF_description
+copying /home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/build/lib/Mini_Dog_URDF_description/__init__.py -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages/Mini_Dog_URDF_description
+copying /home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/build/lib/Mini_Dog_URDF_description/open_loop_visualizer_node.py -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages/Mini_Dog_URDF_description
+copying /home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/build/lib/Mini_Dog_URDF_description/battery_sag_node.py -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages/Mini_Dog_URDF_description
+byte-compiling /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages/Mini_Dog_URDF_description/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages/Mini_Dog_URDF_description/open_loop_visualizer_node.py to open_loop_visualizer_node.cpython-312.pyc
+byte-compiling /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages/Mini_Dog_URDF_description/battery_sag_node.py to battery_sag_node.cpython-312.pyc
+running install_data
+copying resource/Mini_Dog_URDF_description -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/ament_index/resource_index/packages
+copying package.xml -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description
+copying launch/display.launch.py -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/launch
+copying launch/gazebo.launch.py -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/launch
+copying urdf/Mini_Dog_URDF.gazebo -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/urdf
+copying urdf/materials.xacro -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/urdf
+copying urdf/ros2_control.xacro -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/urdf
+copying urdf/Mini_Dog_URDF.xacro -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/urdf
+copying meshes/Tibia_right__1__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Pushrod__3__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/PTK_7465_v3__1__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Battery_Equivalent_1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Knee-bearing_1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/All_Other_Electronics_equivalent_1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Servo_Horn__2__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Pushrod__2__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Tibia_right_1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Femur_left__1__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Pushrod__1__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/PTK_7465_v3__1___1__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Head_1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Knee-bearing__1__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Battery-Platform_1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/PTK_7465_v3_1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Foot_1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Femur_left_1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Foot__2__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Esp32_Platform_1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Knee-bearing__1___2__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Servo_Horn__3__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Servo_Horn__1__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Foot__1__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Pushrod_1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/base_link.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Servo_Horn_1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Tibia_left__1__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/PTK_7465_v3__1___1___1__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Femur_right__1__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Femur_right_1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Tibia_left_1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Foot__3__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying meshes/Knee-bearing__1___1__1.stl -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/meshes
+copying config/controllers.yaml -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/config
+copying config/lab_world.sdf -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/config
+copying config/display.rviz -> /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/share/Mini_Dog_URDF_description/config
+running install_egg_info
+Copying ../build/Mini_Dog_URDF_description/Mini_Dog_URDF_description.egg-info to /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/python3.12/site-packages/Mini_Dog_URDF_description-0.0.0-py3.12.egg-info
+running install_scripts
+Installing battery_sag_node script to /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/Mini_Dog_URDF_description
+Installing open_loop_visualizer_node script to /home/sayak/Desktop/Mini Robot Dog/DAZZY/install/Mini_Dog_URDF_description/lib/Mini_Dog_URDF_description
+writing list of installed files to '/home/sayak/Desktop/Mini Robot Dog/DAZZY/build/Mini_Dog_URDF_description/install.log'

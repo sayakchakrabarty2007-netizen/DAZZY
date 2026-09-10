@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<robot name="Mini_Dog_URDF" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- ================================================================== -->
+  <!-- ros2_control Hardware Interface for Gz Sim (Gazebo Harmonic)        -->
+  <!-- Replaces the old Mini_Dog_URDF.trans (Gazebo Classic transmissions) -->
+  <!--                                                                    -->
+  <!-- PTK-7465 Servo Specifications:                                     -->
+  <!--   Stall Torque: 5.5 kg·cm = 0.5394 N·m                            -->
+  <!--   No-Load Speed: 0.075 s/60° = 13.96 rad/s                        -->
+  <!--   Supply Voltage: 7.4V (2S LiPo)                                  -->
+  <!--   PWM Frequency: 333 Hz                                           -->
+  <!-- ================================================================== -->
+
+  <ros2_control name="GazeboSimSystem" type="system">
+    <hardware>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+    </hardware>
+
+    <!-- ============================================================ -->
+    <!-- Front-Left Hip Servo (Revolute 13)                           -->
+    <!-- Parent: PTK_7465_v3_1 → Child: Femur_left_1                  -->
+    <!-- ============================================================ -->
+    <joint name="Revolute 13">
+      <command_interface name="position">
+        <param name="min">-0.785398</param>
+        <param name="max">0.785398</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <!-- ============================================================ -->
+    <!-- Rear-Left Hip Servo (Revolute 14)                            -->
+    <!-- Parent: PTK_7465_v3__1___1__1 → Child: Femur_left__1__1      -->
+    <!-- ============================================================ -->
+    <joint name="Revolute 14">
+      <command_interface name="position">
+        <param name="min">-0.785398</param>
+        <param name="max">0.785398</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <!-- ============================================================ -->
+    <!-- Front-Right Hip Servo (Revolute 16)                          -->
+    <!-- Parent: PTK_7465_v3__1__1 → Child: Femur_right__1__1         -->
+    <!-- ============================================================ -->
+    <joint name="Revolute 16">
+      <command_interface name="position">
+        <param name="min">-0.785398</param>
+        <param name="max">0.785398</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <!-- ============================================================ -->
+    <!-- Rear-Right Hip Servo (Revolute 32)                           -->
+    <!-- Parent: PTK_7465_v3__1___1___1__1 → Child: Femur_right_1     -->
+    <!-- ============================================================ -->
+    <joint name="Revolute 32">
+      <command_interface name="position">
+        <param name="min">-0.785398</param>
+        <param name="max">0.785398</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+  </ros2_control>
+
+</robot>

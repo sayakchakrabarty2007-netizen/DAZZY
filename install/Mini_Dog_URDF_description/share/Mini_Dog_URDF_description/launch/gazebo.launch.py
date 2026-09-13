@@ -6,6 +6,7 @@ from launch.actions import (
     IncludeLaunchDescription,
     ExecuteProcess,
     RegisterEventHandler,
+    TimerAction,
 )
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import (
@@ -96,7 +97,7 @@ def generate_launch_description():
             '-topic', 'robot_description',
             '-x', '0.0',
             '-y', '0.0',
-            '-z', '0.15',
+            '-z', '0.06',
         ],
         output='screen',
     )
@@ -117,14 +118,27 @@ def generate_launch_description():
 
     # ================================================================
     # ros2_control: Load and activate controllers
-    # These are spawned sequentially after the robot is loaded
+    # 
+    # IMPORTANT: The gz_ros2_control plugin needs time after spawn to:
+    #   1. Receive robot_description from the topic
+    #   2. Initialize the hardware interface (GazeboSimSystem)
+    #   3. Register joint state/command interfaces
+    # Only AFTER this can controllers be configured and activated.
+    #
+    # We use a TimerAction to delay controller spawning by 8 seconds
+    # after the robot is spawned, ensuring hardware is ready.
+    # We also use --controller-manager-timeout 30 so the spawner
+    # retries instead of failing immediately.
     # ================================================================
 
     # 1. Joint State Broadcaster — must start first
     load_joint_state_broadcaster = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["joint_state_broadcaster"],
+        arguments=[
+            "joint_state_broadcaster",
+            "--controller-manager-timeout", "30",
+        ],
         output="screen",
     )
 
@@ -132,18 +146,30 @@ def generate_launch_description():
     load_joint_position_controller = Node(
         package="controller_manager",
         executable="spawner",
-        arguments=["joint_position_controller"],
+        arguments=[
+            "joint_position_controller",
+            "--controller-manager-timeout", "30",
+        ],
         output="screen",
     )
 
+    # Ratchet effort controller removed — wheel joints (Revolute 82/86/87/88)
+    # are not in the URDF or ros2_control hardware interface
+
     # ================================================================
     # Event handlers: sequence controller loading
-    # spawn_robot → joint_state_broadcaster → joint_position_controller
+    # spawn_robot → (8s delay) → joint_state_broadcaster
+    #            → joint_position_controller → battery_sag_node
     # ================================================================
     start_joint_state_broadcaster_after_spawn = RegisterEventHandler(
         event_handler=OnProcessExit(
             target_action=spawn_robot,
-            on_exit=[load_joint_state_broadcaster],
+            on_exit=[
+                TimerAction(
+                    period=8.0,
+                    actions=[load_joint_state_broadcaster],
+                )
+            ],
         )
     )
 
@@ -189,7 +215,7 @@ def generate_launch_description():
     )
 
     # Start battery sag node after position controller is ready
-    start_battery_sag_after_controller = RegisterEventHandler(
+    start_battery_sag_after_position = RegisterEventHandler(
         event_handler=OnProcessExit(
             target_action=load_joint_position_controller,
             on_exit=[battery_sag_node],
@@ -207,6 +233,6 @@ def generate_launch_description():
         gz_ros_bridge,
         start_joint_state_broadcaster_after_spawn,
         start_position_controller_after_broadcaster,
-        start_battery_sag_after_controller,
+        start_battery_sag_after_position,
         open_loop_visualizer_node
     ])

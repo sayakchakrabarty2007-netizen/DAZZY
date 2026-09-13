@@ -6,13 +6,25 @@ Walk Forward Node — Trot gait with IMU pitch balancing
 Generates a trot gait for the Mini Robot Dog (DAZZY) while using IMU
 feedback to compensate for forward/backward pitch during locomotion.
 
+Foot/Ratchet Interaction During Walking:
+  During normal walking (swing + stance phases), the leg presses DOWN
+  during stance. This means the foot tip (TPU pad) is the primary
+  ground contact. The ratchet wheel, mounted slightly behind/above
+  the foot tip on the bearing holder, lifts off the ground when the
+  leg pushes down. Therefore, during normal walking, the ratchet
+  wheels do NOT roll — the robot walks purely on its foot tips.
+
+  This is correct real-world behavior: the ratchet wheels only engage
+  when the body leans forward enough to transfer weight off the foot
+  tips and onto the wheels (see skateboard_forward.py for that mode).
+
 Trot Pattern:
   Phase A (0–50%):  FL + RR swing forward,  FR + RL are stance
   Phase B (50–100%): FR + RL swing forward,  FL + RR are stance
 
 Startup Sequence:
-  1. SETTLE  — hold neutral (0.0 rad) for 2 seconds
-  2. RAMP-UP — linearly increase gait amplitude over 2 seconds
+  1. SETTLE  — hold neutral (0.0 rad) for 0.2 seconds
+  2. RAMP-UP — linearly increase gait amplitude over 0.5 seconds
   3. WALK    — full amplitude trot with pitch correction
 
 Joint Order (matches controllers.yaml):
@@ -27,7 +39,7 @@ Topics:
 
 Usage:
   ros2 run Mini_Dog_URDF_description walk_forward_node
-  ros2 run Mini_Dog_URDF_description walk_forward_node --ros-args \
+  ros2 run Mini_Dog_URDF_description walk_forward_node --ros-args \\
       -p stride_amplitude:=0.3 -p gait_frequency:=1.2
 """
 
@@ -73,33 +85,45 @@ class WalkForwardNode(Node):
     JOINT_LIMIT = 0.785398
 
     # Startup timing (seconds) - Reduced to prevent long waits if simulation is slow
-    SETTLE_DURATION = 0.2     # hold neutral position
-    RAMP_DURATION = 0.5       # linearly ramp up amplitude
+    SETTLE_DURATION = 0.2     # wait before walking
+    RAMP_DURATION = 3.0       # linearly ramp up amplitude
 
     def __init__(self):
         super().__init__('walk_forward_node')
 
         # ---- Declare tunable parameters ----
-        # ULTRA-LOW AMPLITUDE SHUFFLE: Prevents rigid legs from pole-vaulting!
-        self.declare_parameter('stride_amplitude', 0.15)   # Tiny steps to prevent vertical bouncing
-        self.declare_parameter('gait_frequency', 2.0)      # Fast shuffling (2 Hz)
-        self.declare_parameter('duty_factor', 0.65)        # 65% time on ground, 35% time in air
-        
+        # Moderate amplitude: enough for a real stride but not so much that
+        # the foot tips lose ground contact and the ratchet wheels engage.
+        # If amplitude is too large, the legs tilt so far forward that the
+        # body transitions from foot-tip contact to ratchet-wheel contact,
+        # which is the skateboard mode, NOT walking.
+        self.declare_parameter('stride_amplitude', 0.15)
+        self.declare_parameter('gait_frequency', 2.0)      # 2 Hz trot
+        self.declare_parameter('duty_factor', 0.65)         # 65% stance, 35% swing
+
+        # Stance-phase downward bias: during the stance phase, each leg
+        # gets a small additional positive angle to push the foot tip
+        # firmly into the ground. This ensures the ratchet wheel stays
+        # lifted off the ground during normal walking.
+        self.declare_parameter('stance_down_bias', 0.03)    # ~1.7° extra push-down
+
         # Long-Term Posture Drift Correction
-        self.declare_parameter('kp_pitch', 0.3)            # Gentle correction gain
-        
-        self.declare_parameter('control_rate', 50.0)       # Hz
+        self.declare_parameter('kp_pitch', 0.3)
+
+        self.declare_parameter('control_rate', 50.0)        # Hz
 
         self.stride_amplitude = self.get_parameter('stride_amplitude').value
         self.gait_frequency = self.get_parameter('gait_frequency').value
         self.duty_factor = self.get_parameter('duty_factor').value
+        self.stance_down_bias = self.get_parameter('stance_down_bias').value
         self.kp_pitch = self.get_parameter('kp_pitch').value
-        
+
         self.control_rate = self.get_parameter('control_rate').value
 
         # ---- Internal state ----
-        self.tick_count = 0
+        self.start_time = None
         self.filtered_pitch = 0.0
+        self.filtered_pitch_bias = 0.0
         self.imu_received = False
 
         # ---- ROS interfaces ----
@@ -118,7 +142,8 @@ class WalkForwardNode(Node):
 
         self.get_logger().info(
             f'Walk Forward Node started [amp={self.stride_amplitude:.2f}, '
-            f'freq={self.gait_frequency}Hz, kp_pitch={self.kp_pitch}]')
+            f'freq={self.gait_frequency}Hz, kp_pitch={self.kp_pitch}, '
+            f'stance_down_bias={self.stance_down_bias:.3f}]')
 
     # ------------------------------------------------------------------
     # Callbacks
@@ -133,32 +158,47 @@ class WalkForwardNode(Node):
             self.imu_received = True
         else:
             self.filtered_pitch = 0.95 * self.filtered_pitch + 0.05 * pitch
+
     def _clamp(self, val):
         return max(-self.JOINT_LIMIT, min(self.JOINT_LIMIT, val))
 
     def _get_leg_angle(self, local_phase, amplitude):
         """
-        Calculates the PHYSICAL angle for a single leg based on its local phase (0.0 to 1.0).
-        - Swing phase (fast): move from +A (back) to -A (front)
-        - Stance phase (slow): move from -A (front) to +A (back)
+        Calculates the PHYSICAL angle for a single leg based on its
+        local phase (0.0 to 1.0).
+
+        The gait is divided into:
+          - Swing phase (fast):  move from +A (back) to -A (front)
+            → leg in the air, ratchet naturally disengaged
+          - Stance phase (slow): move from -A (front) to +A (back)
+            → leg pressing DOWN on foot tip, ratchet lifted off ground
+
+        Returns:
+            (angle, is_stance) tuple. is_stance is True when the leg
+            is in the ground-contact stance phase.
         """
         swing_time = 1.0 - self.duty_factor
-        
+
         if local_phase < swing_time:
-            # FAST Phase (Swing / Recovery)
+            # FAST Phase (Swing / Recovery) — leg in air
             p = local_phase / swing_time
             smooth_prog = (1.0 - math.cos(math.pi * p)) / 2.0
-            return amplitude - (2.0 * amplitude) * smooth_prog
+            angle = amplitude - (2.0 * amplitude) * smooth_prog
+            return angle, False  # Not in stance
         else:
-            # SLOW Phase (Stance / Propulsion)
+            # SLOW Phase (Stance / Propulsion) — leg on ground
             p = (local_phase - swing_time) / self.duty_factor
-            return -amplitude + (2.0 * amplitude) * p
+            angle = -amplitude + (2.0 * amplitude) * p
+            return angle, True   # In stance
 
     def _control_loop(self):
-        """Generate open-loop duty-factor trot gait with STATIC pitch balancing."""
-        self.tick_count += 1
-        dt = 1.0 / self.control_rate
-        elapsed = self.tick_count * dt
+        """Generate open-loop duty-factor trot gait with STATIC pitch
+        balancing and stance-phase ratchet suppression."""
+        if self.start_time is None:
+            self.start_time = self.get_clock().now().nanoseconds / 1e9
+        
+        now = self.get_clock().now().nanoseconds / 1e9
+        elapsed = now - self.start_time
 
         # ---- Determine amplitude based on startup phase ----
         if elapsed < self.SETTLE_DURATION:
@@ -171,48 +211,80 @@ class WalkForwardNode(Node):
 
         # ---- Duty-Factor Trot Gait Trajectory ----
         walk_elapsed = max(0.0, elapsed - self.SETTLE_DURATION)
-        
+
         t_cycle = walk_elapsed % (1.0 / self.gait_frequency)
         cycle_fraction = t_cycle * self.gait_frequency
-        
-        math_pair1 = self._get_leg_angle(cycle_fraction, amplitude)
-        math_pair2 = self._get_leg_angle((cycle_fraction + 0.5) % 1.0, amplitude)
 
-        # ---- Low-Pass Filtered Pitch Balancing ----
-        # If nose is UP (pitch < 0), we need to shift CoM FORWARD.
-        # To shift CoM FORWARD, we shift feet BACKWARD (positive bias).
-        # So: bias = -kp * pitch
-        bias = -self.kp_pitch * self.filtered_pitch
-        
-        # Limit the bias so it doesn't cause pole-vaulting
-        bias = max(-0.15, min(0.15, bias))
+        # Diagonal pair 1: FL + RR
+        angle_pair1, stance_pair1 = self._get_leg_angle(cycle_fraction, amplitude)
+        # Diagonal pair 2: FR + RL (offset by 0.5 = 180°)
+        angle_pair2, stance_pair2 = self._get_leg_angle(
+            (cycle_fraction + 0.5) % 1.0, amplitude)
+
+        # ---- Stance-phase downward bias ----
+        # During stance, apply a small extra positive angle to push the
+        # foot tip harder into the ground. This ensures the ratchet wheel
+        # (which is mounted slightly behind and higher than the foot tip)
+        # stays lifted clear of the ground during normal walking.
+        # During swing, no bias is applied (leg is in the air anyway).
+        down_bias_pair1 = self.stance_down_bias if stance_pair1 else 0.0
+        down_bias_pair2 = self.stance_down_bias if stance_pair2 else 0.0
+
+        # ---- Low-Pass Filtered Pitch Stabilization ----
+        # If nose is DOWN (pitch > 0), we need to shift CoM BACKWARD.
+        # To shift CoM BACKWARD, we shift feet FORWARD.
+        # A POSITIVE target bias swings all legs FORWARD.
+        # So: bias = +kp * pitch
+        raw_pitch_bias = self.kp_pitch * self.filtered_pitch
+        raw_pitch_bias = max(-0.15, min(0.15, raw_pitch_bias))
+
+        # Ramp up pitch bias to prevent violent kicking on spawn
+        if elapsed < self.SETTLE_DURATION:
+            pitch_bias_factor = 0.0
+        elif elapsed < self.SETTLE_DURATION + self.RAMP_DURATION:
+            pitch_bias_factor = (elapsed - self.SETTLE_DURATION) / self.RAMP_DURATION
+        else:
+            pitch_bias_factor = 1.0
+
+        target_pitch_bias = raw_pitch_bias * pitch_bias_factor
+
+        # FORCIBLY DISABLE PITCH BIAS. 
+        # Swinging legs forward to catch a forward fall rolls the wheels freely,
+        # which shifts the support base too far forward and causes a backflip!
+        pitch_bias = 0.0
 
         # ---- Blend & Publish ----
-        target_pair1 = math_pair1 + bias
-        target_pair2 = math_pair2 + bias
+        target_pair1 = angle_pair1 + pitch_bias + down_bias_pair1
+        target_pair2 = angle_pair2 + pitch_bias + down_bias_pair2
+
+        # Map physical targets to URDF joint commands based on controllers.yaml order:
+        # [0] Revolute 13 (Front-Right) -> Pair 2, Axis -Z
+        # [1] Revolute 14 (Rear-Right)  -> Pair 1, Axis -Z
+        # [2] Revolute 16 (Front-Left)  -> Pair 1, Axis +Z
+        # [3] Revolute 32 (Rear-Left)   -> Pair 2, Axis +Z
         
-        # Map physical targets to URDF joint commands.
-        # Left axes are +1. Right axes are -1.
-        fl = target_pair1 * 1.0
-        rl = target_pair2 * 1.0
-        
-        fr = target_pair2 * -1.0
-        rr = target_pair1 * -1.0
+        cmd0_fr = target_pair2 * -1.0
+        cmd1_rr = target_pair1 * -1.0
+        cmd2_fl = target_pair1 * 1.0
+        cmd3_rl = target_pair2 * 1.0
 
         # ---- Clamp & publish ----
-        fl = self._clamp(fl)
-        rl = self._clamp(rl)
-        fr = self._clamp(fr)
-        rr = self._clamp(rr)
-
         cmd = Float64MultiArray()
-        cmd.data = [fl, rl, fr, rr]
+        cmd.data = [
+            self._clamp(cmd0_fr),
+            self._clamp(cmd1_rr),
+            self._clamp(cmd2_fl),
+            self._clamp(cmd3_rl)
+        ]
         self.cmd_pub.publish(cmd)
 
     def _log_status(self):
         """Periodically log gait state for debugging."""
-        dt = 1.0 / self.control_rate
-        elapsed = self.tick_count * dt
+        if self.start_time is None:
+            return
+        
+        now = self.get_clock().now().nanoseconds / 1e9
+        elapsed = now - self.start_time
 
         if elapsed < self.SETTLE_DURATION:
             phase_name = 'SETTLE'
@@ -223,12 +295,6 @@ class WalkForwardNode(Node):
 
         pitch_deg = math.degrees(self.filtered_pitch)
         self.get_logger().info(f'[{phase_name}] t={elapsed:.1f}s | Filtered Pitch: {pitch_deg:+.1f}°')
-
-    # ------------------------------------------------------------------
-    # Helpers
-    # ------------------------------------------------------------------
-    def _clamp(self, value):
-        return max(-self.JOINT_LIMIT, min(self.JOINT_LIMIT, value))
 
 
 # ---------------------------------------------------------------------------

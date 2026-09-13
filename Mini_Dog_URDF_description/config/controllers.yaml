@@ -22,7 +22,7 @@ controller_manager:
 # =============================================================================
 # Joint State Broadcaster
 # Publishes /joint_states at the controller_manager update_rate (333 Hz)
-# Provides position, velocity, and effort feedback for all controlled joints
+# Only lists joints that exist in ros2_control hardware interface
 # =============================================================================
 joint_state_broadcaster:
   ros__parameters:
@@ -39,8 +39,6 @@ joint_state_broadcaster:
 # =============================================================================
 # Joint Position Controller
 # Position-controlled servos (matching PTK-7465 behavior)
-# Servos are inherently position-controlled devices — they receive a target
-# angle and their internal PID drives the motor to that position.
 # =============================================================================
 joint_position_controller:
   ros__parameters:

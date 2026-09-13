@@ -1,0 +1,34 @@
+# ROS 2 / colcon build artifacts
+build/
+install/
+log/
+*.log
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# VS Code
+.vscode/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+
+# Local env files
+.env
+.env.*
+
+# Colcon metadata
+.colcon_install_layout
+.colcon.pkg
+
+# Common generated outputs
+*.bag
+*.csv
+*.png
+*.jpg
+*.jpeg
+*.stl

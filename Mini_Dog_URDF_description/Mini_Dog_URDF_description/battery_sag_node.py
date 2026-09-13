@@ -28,10 +28,10 @@ class BatterySagNode(Node):
 
     # Joint names for the 4 actuated hip servos
     JOINT_NAMES = [
-        'Revolute 13',   # Front-Left Hip
-        'Revolute 14',   # Rear-Left Hip
-        'Revolute 16',   # Front-Right Hip
-        'Revolute 32',   # Rear-Right Hip
+        'Revolute 16',   # Front-Left Hip
+        'Revolute 32',   # Rear-Left Hip
+        'Revolute 13',   # Front-Right Hip
+        'Revolute 14',   # Rear-Right Hip
     ]
 
     def __init__(self):

@@ -305,13 +305,16 @@ class MasterTeleopNode(Node):
         rear_off = self.get_parameter('skate_rear_offset').value
 
         if self.use_sim_mode:
-            reach_dur, push_dur = 1.20, 0.12
+            reach_dur, push_dur = 0.10, 0.35
             dir_mult = -1.0
+            stance_bias_rear = 0.20 # Keeps rear planted
         else:
             reach_dur, push_dur = 0.15, 0.45
             dir_mult = 1.0
+            stance_bias_rear = 0.0
 
         elapsed_in_state = now - self.skate_state_start_time
+        is_pushing = False
 
         if self.skate_state == 'REACH':
             p = min(1.0, elapsed_in_state / reach_dur)
@@ -321,6 +324,7 @@ class MasterTeleopNode(Node):
                 self.skate_state = 'PUSH'
                 self.skate_state_start_time = now
         elif self.skate_state == 'PUSH':
+            is_pushing = True
             p = min(1.0, elapsed_in_state / push_dur)
             smooth = self._quintic_smooth(p)
             stroke = -amp + (amp - (-amp)) * smooth
@@ -335,8 +339,12 @@ class MasterTeleopNode(Node):
                     self.skate_state_start_time = now
 
         eff_stroke = stroke * dir_mult
-        front_angle = eff_stroke + front_off
-        rear_angle = eff_stroke + rear_off
+        
+        # Apply stance bias to lift front legs during REACH
+        front_bias = 0.20 if (is_pushing and self.use_sim_mode) else 0.0
+        
+        front_angle = eff_stroke + front_off + front_bias
+        rear_angle = eff_stroke + rear_off + stance_bias_rear
 
         return [front_angle, rear_angle, front_angle, rear_angle]
 
@@ -346,11 +354,13 @@ class MasterTeleopNode(Node):
         rear_off = self.get_parameter('skate_rear_offset').value
 
         if self.use_sim_mode:
-            reach_dur, push_dur = 1.20, 0.12
+            reach_dur, push_dur = 0.10, 0.35
             dir_mult = -1.0
+            stance_bias = 0.20 # Push active legs down, lifting passive side
         else:
             reach_dur, push_dur = 0.15, 0.45
             dir_mult = 1.0
+            stance_bias = 0.0
 
         elapsed_in_state = now - self.skate_state_start_time
 
@@ -376,18 +386,20 @@ class MasterTeleopNode(Node):
                     self.skate_state_start_time = now
 
         eff_stroke = stroke * dir_mult
-        active_front_angle = eff_stroke + front_off
-        active_rear_angle = eff_stroke + rear_off
+        
+        # Add stance bias only to active driving legs
+        active_front_angle = eff_stroke + front_off + stance_bias
+        active_rear_angle = eff_stroke + rear_off + stance_bias
 
         passive_stroke = amp * dir_mult
         passive_front_angle = passive_stroke + front_off
         passive_rear_angle = passive_stroke + rear_off
 
         if turn_direction == 'right':
-            # Drive LEFT side, passive RIGHT side
+            # Drive LEFT side (active), passive RIGHT side
             return [active_front_angle, active_rear_angle, passive_front_angle, passive_rear_angle]
         else:
-            # Drive RIGHT side, passive LEFT side
+            # Drive RIGHT side (active), passive LEFT side
             return [passive_front_angle, passive_rear_angle, active_front_angle, active_rear_angle]
 
     def _compute_wheelie_targets(self, now, elapsed):

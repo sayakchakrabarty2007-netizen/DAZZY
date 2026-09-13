@@ -12,7 +12,7 @@
       <dart>
         <collision_detector>bullet</collision_detector>
         <solver>
-          <solver_type>dantzig</solver_type> <!-- Accurate LCP solver -->
+          <solver_type>pgs</solver_type> <!-- Faster PGS solver for closed loops -->
         </solver>
       </dart>
     </physics>

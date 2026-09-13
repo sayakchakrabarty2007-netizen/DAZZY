@@ -52,13 +52,7 @@
     </geometry>
     <material name="silver" />
   </visual>
-  <collision>
-    <origin xyz="0.02875 -0.0115 0.02855" rpy="0 0 0" />
-    <geometry>
-      <mesh filename="package://Mini_Dog_URDF_description/meshes/Femur_left_1.stl" scale="0.001 0.001 0.001" />
-    </geometry>
-    
-  </collision>
+  
 
 </link>
 
@@ -75,13 +69,7 @@
     </geometry>
     <material name="silver" />
   </visual>
-  <collision>
-    <origin xyz="0.09125 -0.0115 0.02855" rpy="0 0 0" />
-    <geometry>
-      <mesh filename="package://Mini_Dog_URDF_description/meshes/Femur_left__1__1.stl" scale="0.001 0.001 0.001" />
-    </geometry>
-    
-  </collision>
+  
 
 </link>
 
@@ -98,13 +86,7 @@
     </geometry>
     <material name="silver" />
   </visual>
-  <collision>
-    <origin xyz="0.02875 -0.0115 -0.02855" rpy="0 0 0" />
-    <geometry>
-      <mesh filename="package://Mini_Dog_URDF_description/meshes/Femur_right__1__1.stl" scale="0.001 0.001 0.001" />
-    </geometry>
-    
-  </collision>
+  
 
 </link>
 
@@ -185,13 +167,7 @@
     </geometry>
     <material name="silver" />
   </visual>
-  <collision>
-    <origin xyz="0.09115 -0.0115 -0.02855" rpy="0 0 0" />
-    <geometry>
-      <mesh filename="package://Mini_Dog_URDF_description/meshes/Femur_right_1.stl" scale="0.001 0.001 0.001" />
-    </geometry>
-    
-  </collision>
+  
 
 </link>
 
@@ -208,12 +184,7 @@
     </geometry>
     <material name="silver" />
   </visual>
-  <collision>
-    <origin xyz="0.04795 -0.0115 0.02" rpy="0 0 0" />
-    <geometry>
-      <mesh filename="package://Mini_Dog_URDF_description/meshes/PTK_7465_v3_1.stl" scale="0.001 0.001 0.001" />
-    </geometry>
-  </collision>
+  
 </link>
 
 <link name="PTK_7465_v3__1___1__1">
@@ -229,12 +200,7 @@
     </geometry>
     <material name="silver" />
   </visual>
-  <collision>
-    <origin xyz="0.07205 -0.0115 0.02" rpy="0 0 0" />
-    <geometry>
-      <mesh filename="package://Mini_Dog_URDF_description/meshes/PTK_7465_v3__1___1__1.stl" scale="0.001 0.001 0.001" />
-    </geometry>
-  </collision>
+  
 </link>
 
 <link name="PTK_7465_v3__1__1">
@@ -250,12 +216,7 @@
     </geometry>
     <material name="silver" />
   </visual>
-  <collision>
-    <origin xyz="0.04795 -0.0115 -0.02" rpy="0 0 0" />
-    <geometry>
-      <mesh filename="package://Mini_Dog_URDF_description/meshes/PTK_7465_v3__1__1.stl" scale="0.001 0.001 0.001" />
-    </geometry>
-  </collision>
+  
 </link>
 
 <link name="PTK_7465_v3__1___1___1__1">
@@ -271,12 +232,7 @@
     </geometry>
     <material name="silver" />
   </visual>
-  <collision>
-    <origin xyz="0.09895 -0.0115 -0.02" rpy="0 0 0" />
-    <geometry>
-      <mesh filename="package://Mini_Dog_URDF_description/meshes/PTK_7465_v3__1___1___1__1.stl" scale="0.001 0.001 0.001" />
-    </geometry>
-  </collision>
+  
 </link>
 
 <link name="Esp32_Platform_1">
@@ -404,13 +360,7 @@
     </geometry>
     <material name="silver" />
   </visual>
-  <collision>
-    <origin xyz="0.04875 0.023141 -0.03155" rpy="0 0 0" />
-    <geometry>
-      <mesh filename="package://Mini_Dog_URDF_description/meshes/Tibia_right_1.stl" scale="0.001 0.001 0.001" />
-    </geometry>
-    
-  </collision>
+  
 </link>
 
 <link name="Tibia_right__1__1">
@@ -426,13 +376,7 @@
     </geometry>
     <material name="silver" />
   </visual>
-  <collision>
-    <origin xyz="0.11115 0.023141 -0.03155" rpy="0 0 0" />
-    <geometry>
-      <mesh filename="package://Mini_Dog_URDF_description/meshes/Tibia_right__1__1.stl" scale="0.001 0.001 0.001" />
-    </geometry>
-    
-  </collision>
+  
 </link>
 
 <link name="Tibia_left_1">
@@ -448,13 +392,7 @@
     </geometry>
     <material name="silver" />
   </visual>
-  <collision>
-    <origin xyz="0.04875 0.023141 0.03155" rpy="0 0 0" />
-    <geometry>
-      <mesh filename="package://Mini_Dog_URDF_description/meshes/Tibia_left_1.stl" scale="0.001 0.001 0.001" />
-    </geometry>
-    
-  </collision>
+  
 </link>
 
 <link name="Tibia_left__1__1">
@@ -470,13 +408,7 @@
     </geometry>
     <material name="silver" />
   </visual>
-  <collision>
-    <origin xyz="0.11125 0.023141 0.03155" rpy="0 0 0" />
-    <geometry>
-      <mesh filename="package://Mini_Dog_URDF_description/meshes/Tibia_left__1__1.stl" scale="0.001 0.001 0.001" />
-    </geometry>
-    
-  </collision>
+  
 </link>
 
 
@@ -809,13 +741,7 @@
       </geometry>
       <material name="silver" />
     </visual>
-  <collision>
-      <origin rpy="0 0 0" xyz="0.024454 0.052063 0.02555" />
-      <geometry>
-        <mesh filename="package://Mini_Dog_URDF_description/meshes/Foot_Bearing_holder_1.stl" scale="0.001 0.001 0.001" />
-      </geometry>
-      
-    </collision>
+  
   </link>
   <link name="Foot_Bearing_holder__1__1">
     <inertial>
@@ -830,13 +756,7 @@
       </geometry>
       <material name="silver" />
     </visual>
-  <collision>
-      <origin rpy="0 0 0" xyz="0.024743 0.051076 -0.02555" />
-      <geometry>
-        <mesh filename="package://Mini_Dog_URDF_description/meshes/Foot_Bearing_holder__1__1.stl" scale="0.001 0.001 0.001" />
-      </geometry>
-      
-    </collision>
+  
   </link>
   <link name="Foot_Bearing_holder__3__1">
     <inertial>
@@ -851,13 +771,7 @@
       </geometry>
       <material name="silver" />
     </visual>
-  <collision>
-      <origin rpy="0 0 0" xyz="0.087243 0.051076 0.02855" />
-      <geometry>
-        <mesh filename="package://Mini_Dog_URDF_description/meshes/Foot_Bearing_holder__3__1.stl" scale="0.001 0.001 0.001" />
-      </geometry>
-      
-    </collision>
+  
   </link>
   <link name="Foot_Bearing_holder__2__1">
     <inertial>
@@ -872,13 +786,7 @@
       </geometry>
       <material name="silver" />
     </visual>
-  <collision>
-      <origin rpy="0 0 0" xyz="0.087143 0.051076 -0.02555" />
-      <geometry>
-        <mesh filename="package://Mini_Dog_URDF_description/meshes/Foot_Bearing_holder__2__1.stl" scale="0.001 0.001 0.001" />
-      </geometry>
-      
-    </collision>
+  
   </link>
   
   
@@ -899,11 +807,12 @@
       <material name="silver" />
     </visual>
     <collision>
-      <origin rpy="1.5708 0 0" xyz="0.0 0.0 0.0015" />
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
       <geometry>
-        <cylinder length="0.003" radius="0.008" />
+        <sphere radius="0.015"/>
       </geometry>
     </collision>
+    
   </link>
   <link name="FootWheel_Ratchet__1__1">
     <inertial>
@@ -919,11 +828,12 @@
       <material name="silver" />
     </visual>
     <collision>
-      <origin rpy="1.5708 0 0" xyz="0.0 0.0 -0.0015" />
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
       <geometry>
-        <cylinder length="0.003" radius="0.008" />
+        <sphere radius="0.015"/>
       </geometry>
     </collision>
+    
   </link>
   <link name="FootWheel_Ratchet__3__1">
     <inertial>
@@ -939,11 +849,12 @@
       <material name="silver" />
     </visual>
     <collision>
-      <origin rpy="1.5708 0 0" xyz="0.0 0.0 -0.0015" />
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
       <geometry>
-        <cylinder length="0.003" radius="0.008" />
+        <sphere radius="0.015"/>
       </geometry>
     </collision>
+    
   </link>
   <link name="FootWheel_Ratchet__2__1">
     <inertial>
@@ -959,11 +870,12 @@
       <material name="silver" />
     </visual>
     <collision>
-      <origin rpy="1.5708 0 0" xyz="0.0 0.0 -0.0015" />
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
       <geometry>
-        <cylinder length="0.003" radius="0.008" />
+        <sphere radius="0.015"/>
       </geometry>
     </collision>
+    
   </link>
   <link name="Foot_1">
     <inertial>
@@ -979,11 +891,12 @@
       <material name="silver" />
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0 -0.001 0.0" />
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
       <geometry>
-        <sphere radius="0.008" />
+        <sphere radius="0.015"/>
       </geometry>
     </collision>
+    
   </link>
   <link name="Foot__1__1">
     <inertial>
@@ -999,11 +912,12 @@
       <material name="silver" />
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0 -0.001 0.0" />
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
       <geometry>
-        <sphere radius="0.008" />
+        <sphere radius="0.015"/>
       </geometry>
     </collision>
+    
   </link>
   <link name="Foot__3__1">
     <inertial>
@@ -1019,11 +933,12 @@
       <material name="silver" />
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0 -0.001 0.0" />
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
       <geometry>
-        <sphere radius="0.008" />
+        <sphere radius="0.015"/>
       </geometry>
     </collision>
+    
   </link>
   
   
@@ -1042,11 +957,12 @@
       <material name="silver" />
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0.0 -0.001 0.0" />
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
       <geometry>
-        <sphere radius="0.008" />
+        <sphere radius="0.015"/>
       </geometry>
     </collision>
+    
   </link>
   <joint name="Revolute 81" type="fixed">
     <origin rpy="0 0 0" xyz="0.024296 -0.028922 0.003" />
@@ -1125,4 +1041,13 @@
   
   
   
-  </robot>
+  
+
+
+
+
+
+
+
+
+</robot>
